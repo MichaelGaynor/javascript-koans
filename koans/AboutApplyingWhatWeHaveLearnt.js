@@ -101,7 +101,13 @@ describe("About Applying What We Have Learnt", function() {
     var ingredientCount = { "{ingredient name}": 0 };
 
     /* chain() together map(), flatten() and reduce() */
-    
+    var shrooms = products.ingredients.map(_.reduce(_(products.ingredients).flatten), function(memo, ing){
+      if (ing === "mushrooms") {
+        return ing
+      }
+    })
+
+    console.log(shrooms)
 
     expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
   });
