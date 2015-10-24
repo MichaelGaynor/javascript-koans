@@ -107,7 +107,7 @@ describe("About Applying What We Have Learnt", function() {
       }
     })
 
-    console.log(shrooms)
+    console.log(shrooms);
 
     expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
   });
