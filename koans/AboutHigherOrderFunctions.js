@@ -21,7 +21,7 @@ describe("About Higher Order Functions", function () {
     var numbersPlus1 = _(numbers).map(function(x) { return x + 1 });
 
     expect(numbersPlus1).toEqual([2,3,4]);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(numbers).toEqual([1,2,3]);
   });
 
   it("should use 'reduce' to update the same result on each iteration", function () {
@@ -29,8 +29,8 @@ describe("About Higher Order Functions", function () {
     var reduction = _(numbers).reduce(
             function(/* result from last call */ memo, /* current */ x) { return memo + x }, /* initial */ 0);
 
-    expect(reduction).toBe(FILL_ME_IN);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(reduction).toBe(6);
+    expect(numbers).toEqual([1,2,3]);
   });
 
   it("should use 'forEach' for simple iteration", function () {
@@ -42,8 +42,8 @@ describe("About Higher Order Functions", function () {
 
     _(numbers).forEach(isEven);
 
-    expect(msg).toEqual(FILL_ME_IN);
-    expect(numbers).toEqual(FILL_ME_IN);
+    expect(msg).toEqual(false true false);
+    expect(numbers).toEqual([1,2,3]);
   });
 
   it("should use 'all' to test whether all items pass condition", function () {
@@ -73,7 +73,7 @@ describe("About Higher Order Functions", function () {
   });
 
   it("should use flatten to make nested arrays easy to work with", function() {
-      expect(_([ [1, 2], [3, 4] ]).flatten()).toEqual(FILL_ME_IN);
+      expect(_([ [1, 2], [3, 4] ]).flatten()).toEqual([1,2,3,4]);
   });
 
   it("should use chain() ... .value() to use multiple higher order functions", function() {
@@ -83,7 +83,7 @@ describe("About Higher Order Functions", function () {
                        .reduce(function (sum, x) { return sum + x })
                        .value();
 
-      expect(result).toEqual(FILL_ME_IN);
+      expect(result).toEqual(6);
   });
 
 });
