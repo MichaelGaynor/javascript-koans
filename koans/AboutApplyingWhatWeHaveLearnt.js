@@ -98,18 +98,42 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should count the ingredient occurrence (functional)", function () {
+  //   var ingredientCount = { "{ingredient name}": 0 };
+
+  //   /* chain() together map(), flatten() and reduce() */
+  //   var shrooms = products.ingredients.map(_.reduce(_(products.ingredients).flatten), function(memo, ing){
+  //     if (ing === "mushrooms") {
+  //       return ing
+  //     }
+  //   })
+
+  //   console.log(shrooms);
+
+  //   expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+  // });
+  var ingredientCount = { "{ingredient name}": 0 };
+
+    for (i = 0; i < products.length; i+=1) {
+        for (j = 0; j < products[i].ingredients.length; j+=1) {
+            ingredientCount[products[i].ingredients[j]] = (ingredientCount[products[i].ingredients[j]] || 0) + 1;
+        }
+    }
+
+    expect(ingredientCount['mushrooms']).toBe(2);
+  });
+
+  it("should count the ingredient occurrence (functional)", function () {
     var ingredientCount = { "{ingredient name}": 0 };
+    
+    _(products).chain()
+      .map(function(p) { return p.ingredients })
+      .flatten()
+      .reduce(function(s, i) { return ingredientCount[i] = (ingredientCount[i] || 0) + 1 })
+      .value();
 
     /* chain() together map(), flatten() and reduce() */
-    var shrooms = products.ingredients.map(_.reduce(_(products.ingredients).flatten), function(memo, ing){
-      if (ing === "mushrooms") {
-        return ing
-      }
-    })
 
-    console.log(shrooms);
-
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(ingredientCount);
   });
 
   /*********************************************************************************/
