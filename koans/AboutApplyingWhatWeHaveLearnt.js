@@ -123,7 +123,7 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should count the ingredient occurrence (functional)", function () {
-    var ingredientCount = _.(products)chain
+    var ingredientCount = _.chain(products)
   .pluck("ingredients") // don't use map for that
   .flatten()
   .reduce(function (memo, item) {
