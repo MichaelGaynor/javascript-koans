@@ -124,14 +124,19 @@ describe("About Applying What We Have Learnt", function() {
 
   it("should count the ingredient occurrence (functional)", function () {
     var ingredientCount = 
-      _(products).chain().map(function(name) { 
-+       return name.ingredients;})
-+     .flatten()
-+     .reduce(function(ingredientCount, i) {
-+       ingredientCount[i] = (ingredientCount[i] || 0) + 1;
-+       return ingredientCount}, {}).value();
-+
-+    expect(ingredientCount['mushrooms']).toBe(2);
+
+    _(products).chain()
+      .map(function(name) {
+        return name.ingredients:
+      })
+      .flatten()
+      .reduce(function(ingredientCount, i){
+        ingredientCount[i] = (ingredientCount[i] || 0) + 1;
+        return ingredientCount,
+      })
+      .value();
+
+      expect (ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
