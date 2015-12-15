@@ -133,7 +133,7 @@ describe("About Applying What We Have Learnt", function() {
       .reduce(function(ingredientCount, i){
         ingredientCount[i] = (ingredientCount[i] || 0) + 1;
         return ingredientCount,
-      })
+      )
       .value();
 
       expect (ingredientCount['mushrooms']).toBe(2);
