@@ -44,7 +44,7 @@ describe("About Applying What We Have Learnt", function() {
         })
       ];
 
-      console.log(productsICanEat)
+      // console.log(productsICanEat)
       /* solve using filter() & all() / any() */
 
 
@@ -79,7 +79,7 @@ describe("About Applying What We Have Learnt", function() {
       }
     })
     
-    console.log(sum)
+    // console.log(sum)
 
     expect(233168).toBe(sum);
   });
@@ -123,19 +123,17 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should count the ingredient occurrence (functional)", function () {
-    var ingredientCount = 
+    var ingredientCount = {"{ingredient name}": 0};
 
-    _(products).chain()
-      .map(function(name) {
-        return name.ingredients;
-      })
-      .flatten()
-      .reduce(function(ingredientCount, i){
-        ingredientCount[i] = (ingredientCount[i] || 0) + 1;
-        return ingredientCount})
-        .value();
+    for (i = 0; i < products.length; i+=1) {
+        for (j = 0; j < products[i].ingredients.length; j+=1) {
+            ingredientCount[products[i].ingredients[j]] = (ingredientCount[products[i].ingredients[j]] || 0) + 1;
+        }
+    }     
 
-      expect (ingredientCount['mushrooms']).toBe(undefined);
+ 
+
+      expect (ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
