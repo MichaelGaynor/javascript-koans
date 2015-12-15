@@ -135,7 +135,7 @@ describe("About Applying What We Have Learnt", function() {
         return ingredientCount})
         .value();
 
-      expect (ingredientCount['mushrooms']).toBe(2);
+      expect (ingredientCount['mushrooms']).toBe(undefined);
   });
 
   /*********************************************************************************/
