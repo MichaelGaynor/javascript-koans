@@ -42,7 +42,7 @@ describe("About Higher Order Functions", function () {
 
     _(numbers).forEach(isEven);
 
-    expect(msg).toEqual(false true false);
+    expect(msg).toEqual(false true false));
     expect(numbers).toEqual([1,2,3]);
   });
 
